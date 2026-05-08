@@ -34,9 +34,9 @@
 
 | Service            | URL                                      | Status |
 |--------------------|------------------------------------------|--------|
-| Frontend (Vercel)  | `https://[your-app].vercel.app`          | ⬜     |
-| Backend (Render)   | `https://[your-api].onrender.com`        | ⬜     |
-| API Health Check   | `https://[your-api].onrender.com/api/health` | ⬜ |
+| Frontend (Vercel)  | `https://restaurant-management-system-exam-2.vercel.app/`          | ok     |
+| Backend (Render)   | `https://restaurant-management-system-exam-backend.onrender.com/`        | ok     |
+| API Health Check   | `https://restaurant-management-system-exam-backend.onrender.com/api/health` | ok|
 | Database (Neon)    | `postgresql://neondb_owner:npg_duRYxoE9atf0@ep-delicate-credit-aq1n70m0-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require`      | ok     |
 
 ---
@@ -417,9 +417,9 @@ Build Command:  npm run build
 |---------------|-----------|------------------------------------------------|
 | `DATABASE_URL` | Backend  | `postgresql://user:pass@host.neon.tech/db?sslmode=require` |
 | `JWT_SECRET`   | Backend  | random string ที่ปลอดภัย (≥ 32 ตัวอักษร)       |
-| `CORS_ORIGIN`  | Backend  | URL ของ Frontend เช่น `https://[app].vercel.app` |
+| `CORS_ORIGIN`  | Backend  | `https://restaurant-management-system-exam-2.vercel.app/` (ใส่หลัง Deploy Vercel เสร็จ) |
 | `NODE_ENV`     | Backend  | `production`                                    |
-| `VITE_API_URL` | Frontend | URL ของ Backend เช่น `https://[api].onrender.com` |
+| `VITE_API_URL` | Frontend | `https://restaurant-management-system-exam-backend.onrender.com` |
 
 ---
 
@@ -429,14 +429,18 @@ Build Command:  npm run build
 
 | # | Feature          | คำสั่ง / ขั้นตอน                              | Expected               | หลักฐาน | ผ่าน/ไม่ผ่าน |
 |---|------------------|-----------------------------------------------|------------------------|---------|--------------|
-| 1 | Health Check     | `GET /api/health`                             | `{"status":"ok"}`      | 📸      | ⬜           |
-| 2 | Login            | Login ด้วย admin บน Frontend URL              | เข้าระบบสำเร็จ        | 📸      | ⬜           |
-| 3 | Open Order & Add | เปิดโต๊ะ → เพิ่มสินค้า → Confirm             | ออเดอร์ถูกบันทึก      | 📸      | ⬜           |
-| 4 | Payment          | ชำระเงิน → ตรวจสอบ change                    | คำนวณเงินทอนถูกต้อง   | 📸      | ⬜           |
+| 1 | Health Check     | `GET /api/health`                             | `{"status":"ok"}`      | 📸      | ได้          |
+| 2 | Login            | Login ด้วย admin บน Frontend URL              | เข้าระบบสำเร็จ        | 📸      | ok         |
+| 3 | Open Order & Add | เปิดโต๊ะ → เพิ่มสินค้า → Confirm             | ออเดอร์ถูกบันทึก      | 📸      | ok        |
+| 4 | Payment          | ชำระเงิน → ตรวจสอบ change                    | คำนวณเงินทอนถูกต้อง   | 📸      | ok        |
 
 **Production Smoke Test ผ่าน: ___ / 4 รายการ**
 
 > 📸 (วางภาพหน้าจอหลักฐานแต่ละ Feature)
+![alt text](image-7.png)
+![alt text](image-8.png)
+![alt text](image-9.png)
+![alt text](image-10.png)
 
 ---
 
@@ -456,14 +460,16 @@ Build Command:  npm run build
 
 | Metric          | ค่า    |
 |-----------------|--------|
-| Total Tests     | ??     |
-| Tests Passed    | ??     |
-| Tests Failed    | ??     |
-| **Pass Rate**   | **??%** |
+| Total Tests     | 26     |
+| Tests Passed    | 22     |
+| Tests Failed    | 4 (BUG-002, BUG-003 ×2, BUG-004 — Known Open Bugs) |
+| **Pass Rate**   | **84.6%** |
 
 > 📸 **ภาพหน้าจอ GitHub Actions Pipeline สำเร็จ**
 >
-> (วางภาพที่นี่)
+![alt text](image-11.png)
+![alt text](image-12.png)
+![alt text](image-13.png)
 
 ---
 
