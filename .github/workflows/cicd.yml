@@ -54,6 +54,7 @@ jobs:
       - name: Start backend for Newman tests
         run: |
           cd backend
+          npm run build
           npx prisma db push
           npx tsx prisma/seed.ts
           npm start &
