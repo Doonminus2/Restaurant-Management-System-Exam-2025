@@ -72,7 +72,7 @@
 
 ### Entry/Exit Criteria
 
-**Entry:** ระบบ Start ได้, `GET /api/health` คืน `{"status":"ok"}`
+**Entry:** ระบบ Start ได้ (✅ ทำได้แล้ว), `GET /api/health` คืน `{"status":"ok"}` (✅ ทำได้แล้ว), Database เชื่อมต่อ Neon.tech สำเร็จ (✅ ทำได้แล้ว), Postman Collection พร้อมสำหรับ Newman (✅ ทำได้แล้ว)
 **Exit:** ≥ 80% Test Cases ผ่าน, ไม่มี Critical Bug ที่ยังไม่รายงาน
 
 ### Business Risk
